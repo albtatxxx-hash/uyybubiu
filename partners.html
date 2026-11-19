@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>شراكات ومستشفيات معتمدة | نبض الأمل</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#00685f",
+            "primary-container": "#008378",
+            "primary-fixed": "#89f5e7",
+            "primary-fixed-dim": "#6bd8cb",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#f4fffc",
+            "on-primary-fixed-variant": "#005049",
+            secondary: "#855300",
+            "secondary-container": "#fea619",
+            "secondary-fixed": "#ffddb8",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#684000",
+            tertiary: "#b90538",
+            "tertiary-container": "#dc2c4f",
+            "tertiary-fixed": "#ffdadb",
+            "on-tertiary": "#ffffff",
+            surface: "#fbf9f5",
+            "surface-dim": "#dbdad6",
+            "surface-bright": "#fbf9f5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3ef",
+            "surface-container": "#efeeea",
+            "surface-container-high": "#eae8e4",
+            "surface-container-highest": "#e4e2de",
+            "on-surface": "#1b1c1a",
+            "on-surface-variant": "#3d4947",
+            outline: "#6d7a77",
+            "outline-variant": "#bcc9c6"
+          },
+          fontFamily: {
+            "headline-lg": ["Readex Pro", "sans-serif"],
+            "headline-md": ["Readex Pro", "sans-serif"],
+            "headline-sm": ["Readex Pro", "sans-serif"],
+            "body-lg": ["Readex Pro", "sans-serif"],
+            "body-md": ["Readex Pro", "sans-serif"],
+            "body-sm": ["Readex Pro", "sans-serif"],
+            "label-lg": ["Readex Pro", "sans-serif"],
+            "label-md": ["Readex Pro", "sans-serif"],
+            "label-sm": ["Readex Pro", "sans-serif"],
+            "display-hero": ["Readex Pro", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+
+  <!-- TOP HEADER / NAVBAR -->
+  <header class="fixed top-0 w-full z-50 glass-header shadow-[0_1px_8px_rgba(28,25,23,0.05)] border-b border-outline-variant/20">
+    <div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-secondary-fixed flex items-center justify-center text-primary shadow-[0_2px_8px_rgba(254,166,25,0.2)] group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[26px]">favorite</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-[20px] text-primary tracking-tight">نبض الأمل</span>
+          <span class="text-[11px] text-secondary font-medium">لأطفال الغسيل الكلوي</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden xl:flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30">
+        <a class="nav-link px-4 py-2 rounded-full text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">الرئيسية</a>
+        <a class="nav-link px-4 py-2 rounded-full text-on-surface-variant hover:text-on-surface transition-colors" href="stories.html">قصص وأحلام الأبطال</a>
+        <a class="nav-link px-4 py-2 rounded-full text-on-surface-variant hover:text-on-surface transition-colors" href="calculator.html">حاسبة التبرع والكفالة</a>
+        <a class="nav-link px-4 py-2 transition-colors active" href="partners.html">شراكات ومستشفيات</a>
+        <a class="nav-link px-4 py-2 rounded-full text-on-surface-variant hover:text-on-surface transition-colors" href="about.html">عن المبادرة</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="flex items-center gap-3">
+        <a href="donate.html" class="hidden sm:inline-flex items-center gap-2 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container px-5 py-2.5 rounded-full font-bold shadow-[0_4px_16px_rgba(254,166,25,0.3)] transition-all hover:scale-105 active:scale-95 text-[15px]">
+          <span>تبرّع الآن</span>
+          <span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+        </a>
+        <button type="button" class="trigger-donate-modal inline-flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container" title="تبرع سريع">
+          <span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+        </button>
+        <!-- Mobile Drawer Hamburger -->
+        <button id="mobileMenuBtn" class="xl:hidden flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface" type="button" aria-label="القائمة">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden transition-opacity"></div>
+  <aside id="mobileMenuDrawer" class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-surface-container-lowest z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col p-6">
+    <div class="flex items-center justify-between pb-6 border-b border-outline-variant/30">
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-full bg-secondary-fixed flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-[20px]">favorite</span>
+        </div>
+        <span class="font-bold text-primary text-lg">نبض الأمل</span>
+      </div>
+      <button id="mobileMenuCloseBtn" class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant" type="button">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="flex flex-col gap-2 py-6 flex-1 overflow-y-auto">
+      <a href="index.html" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-on-surface font-medium hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-primary">home</span>
+        <span>الرئيسية</span>
+      </a>
+      <a href="stories.html" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-on-surface font-medium hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-secondary">star</span>
+        <span>قصص وأحلام الأبطال</span>
+      </a>
+      <a href="calculator.html" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-on-surface font-medium hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-primary">calculate</span>
+        <span>حاسبة التبرع والكفالة</span>
+      </a>
+      <a href="partners.html" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-on-surface font-medium hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-primary">local_hospital</span>
+        <span>شراكات ومستشفيات</span>
+      </a>
+      <a href="about.html" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-on-surface font-medium hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-primary">info</span>
+        <span>عن المبادرة</span>
+      </a>
+      <a href="donate.html" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-on-surface font-medium hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-tertiary">loyalty</span>
+        <span>صفحة التبرع المتكاملة</span>
+      </a>
+    </div>
+    <div class="pt-4 border-t border-outline-variant/30">
+      <a href="donate.html" class="w-full py-3.5 rounded-2xl bg-secondary-container text-on-secondary-container font-bold flex items-center justify-center gap-2 shadow-md">
+        <span>تبرّع الآن</span>
+        <span class="material-symbols-outlined">volunteer_activism</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN PARTNERS CONTENT -->
+  <main class="w-full pt-28 pb-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-12">
+
+      <!-- Header -->
+      <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-3">
+        <span class="px-4 py-1.5 rounded-full bg-secondary-fixed text-secondary text-xs font-bold uppercase tracking-wider">
+          شبكة العناية الطبية الفائقة
+        </span>
+        <h1 class="text-3xl md:text-5xl font-bold text-on-surface">
+          المستشفيات الشريكة ومراكز الغسيل المعتمدة
+        </h1>
+        <p class="text-on-surface-variant text-base leading-relaxed">
+          نتعاون مباشرة مع نخبة المشافي التخصصية ومراكز الكلى المعتمدة في المملكة العربية السعودية لضمان وصول التبرعات في صورة جلسات ومستلزمات حقيقية للمستحقين.
+        </p>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-surface-container-lowest p-5 rounded-3xl border border-outline-variant/30 shadow-sm flex flex-col items-center text-center">
+          <span class="text-3xl font-bold text-primary">18+</span>
+          <span class="text-xs text-on-surface-variant mt-1 font-medium">مستشفى ومركز معتمد</span>
+        </div>
+        <div class="bg-surface-container-lowest p-5 rounded-3xl border border-outline-variant/30 shadow-sm flex flex-col items-center text-center">
+          <span class="text-3xl font-bold text-secondary">102</span>
+          <span class="text-xs text-on-surface-variant mt-1 font-medium">سرير غسيل أطفال مغطى</span>
+        </div>
+        <div class="bg-surface-container-lowest p-5 rounded-3xl border border-outline-variant/30 shadow-sm flex flex-col items-center text-center">
+          <span class="text-3xl font-bold text-primary">1,420</span>
+          <span class="text-xs text-on-surface-variant mt-1 font-medium">جلسة منجزة هذا الشهر</span>
+        </div>
+        <div class="bg-surface-container-lowest p-5 rounded-3xl border border-outline-variant/30 shadow-sm flex flex-col items-center text-center">
+          <span class="text-3xl font-bold text-tertiary">100%</span>
+          <span class="text-xs text-on-surface-variant mt-1 font-medium">رقابة طبية وإشراف كامل</span>
+        </div>
+      </div>
+
+      <!-- City Filter Bar -->
+      <div class="flex flex-wrap items-center justify-center gap-2" id="cityFilters">
+        <button class="city-btn active px-5 py-2.5 rounded-full bg-primary text-white text-xs font-bold transition-all" data-city="all">
+          جميع المدن
+        </button>
+        <button class="city-btn px-5 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-semibold transition-all" data-city="الرياض">
+          الرياض
+        </button>
+        <button class="city-btn px-5 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-semibold transition-all" data-city="جدة">
+          جدة
+        </button>
+        <button class="city-btn px-5 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-semibold transition-all" data-city="الدمام">
+          الدمام والشرقية
+        </button>
+        <button class="city-btn px-5 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-semibold transition-all" data-city="مكة المكرمة">
+          مكة المكرمة
+        </button>
+        <button class="city-btn px-5 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-semibold transition-all" data-city="المدينة المنورة">
+          المدينة المنورة
+        </button>
+      </div>
+
+      <!-- Hospitals Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="hospitalsGrid">
+        
+        <!-- Hospital 1 -->
+        <div class="hospital-card bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow" data-city="الرياض">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-bold">مستشفى تخصصي</span>
+              <span class="text-xs text-on-surface-variant flex items-center gap-1 font-semibold">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                الرياض
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[28px]">local_hospital</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">مدينة الملك فهد الطبية</h3>
+                <p class="text-xs text-secondary font-semibold">مركز أورام وأمراض كلى الأطفال</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              تضم الوحدة 24 سريراً ومزودة بأحدث أجهزة الغسيل الكلوي المتطورة بإشراف استشاري أطفال متخصص.
+            </p>
+            <div class="bg-surface-container-low p-3 rounded-2xl flex items-center justify-between text-xs">
+              <span class="text-on-surface-variant">الجلسات الشهرية:</span>
+              <span class="font-bold text-primary">450 جلسة / شهر</span>
+            </div>
+          </div>
+          <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant">الحالات المغطاة: 40 طفلاً</span>
+            <button class="trigger-donate-modal text-xs font-bold text-secondary hover:underline flex items-center gap-1" data-preset-amount="250" type="button">
+              <span>اكفل جلسة هنا</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hospital 2 -->
+        <div class="hospital-card bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow" data-city="جدة">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-secondary-fixed text-secondary text-xs font-bold">مركز زراعة معتمد</span>
+              <span class="text-xs text-on-surface-variant flex items-center gap-1 font-semibold">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                جدة
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[28px]">domain</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">مستشفى الملك فيصل التخصصي</h3>
+                <p class="text-xs text-secondary font-semibold">قسم تنقية الدم وزراعة الأعضاء</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              يقدم خدمات الغسيل الدموي والبريتوني للأطفال الرضع واليافعين ويهيئهم لعمليات الزراعة.
+            </p>
+            <div class="bg-surface-container-low p-3 rounded-2xl flex items-center justify-between text-xs">
+              <span class="text-on-surface-variant">الجلسات الشهرية:</span>
+              <span class="font-bold text-primary">320 جلسة / شهر</span>
+            </div>
+          </div>
+          <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant">الحالات المغطاة: 28 طفلاً</span>
+            <button class="trigger-donate-modal text-xs font-bold text-secondary hover:underline flex items-center gap-1" data-preset-amount="250" type="button">
+              <span>اكفل جلسة هنا</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hospital 3 -->
+        <div class="hospital-card bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow" data-city="الدمام">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-tertiary-fixed text-tertiary text-xs font-bold">مستشفى أطفال متكامل</span>
+              <span class="text-xs text-on-surface-variant flex items-center gap-1 font-semibold">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                الدمام
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-tertiary/10 text-tertiary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[28px]">child_friendly</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">مستشفى الولادة والأطفال</h3>
+                <p class="text-xs text-tertiary font-semibold">وحدة الغسيل الكلوي للأطفال</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              تغطي خدمات المنطقة الشرقية بالكامل وتوفر فصولاً تعليمية تفاعلية داخل جناح الغسيل.
+            </p>
+            <div class="bg-surface-container-low p-3 rounded-2xl flex items-center justify-between text-xs">
+              <span class="text-on-surface-variant">الجلسات الشهرية:</span>
+              <span class="font-bold text-primary">280 جلسة / شهر</span>
+            </div>
+          </div>
+          <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant">الحالات المغطاة: 25 طفلاً</span>
+            <button class="trigger-donate-modal text-xs font-bold text-secondary hover:underline flex items-center gap-1" data-preset-amount="250" type="button">
+              <span>اكفل جلسة هنا</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hospital 4 -->
+        <div class="hospital-card bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow" data-city="مكة المكرمة">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-bold">مركز مرجعي</span>
+              <span class="text-xs text-on-surface-variant flex items-center gap-1 font-semibold">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                مكة المكرمة
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[28px]">healing</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">مستشفى النور التخصصي</h3>
+                <p class="text-xs text-secondary font-semibold">مركز الكلى والعناية اليومية</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              يقدم خدمات الكفالة لأبناء مكة المكرمة وأطفال الزوار والمعتمرين المحتاجين لغسيل طارئ.
+            </p>
+            <div class="bg-surface-container-low p-3 rounded-2xl flex items-center justify-between text-xs">
+              <span class="text-on-surface-variant">الجلسات الشهرية:</span>
+              <span class="font-bold text-primary">190 جلسة / شهر</span>
+            </div>
+          </div>
+          <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant">الحالات المغطاة: 16 طفلاً</span>
+            <button class="trigger-donate-modal text-xs font-bold text-secondary hover:underline flex items-center gap-1" data-preset-amount="250" type="button">
+              <span>اكفل جلسة هنا</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hospital 5 -->
+        <div class="hospital-card bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow" data-city="جدة">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-secondary-fixed text-secondary text-xs font-bold">مجمع طبي حديث</span>
+              <span class="text-xs text-on-surface-variant flex items-center gap-1 font-semibold">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                جدة
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[28px]">apartment</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">مجمع الملك عبدالله الطبي</h3>
+                <p class="text-xs text-secondary font-semibold">مركز الغسيل الكلوي شمال جدة</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              يتميز بوحدة عزل للأطفال ذوي المناعة المنخفضة وتأمين خطوط غسيل خاصة ومعقمة.
+            </p>
+            <div class="bg-surface-container-low p-3 rounded-2xl flex items-center justify-between text-xs">
+              <span class="text-on-surface-variant">الجلسات الشهرية:</span>
+              <span class="font-bold text-primary">210 جلسة / شهر</span>
+            </div>
+          </div>
+          <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant">الحالات المغطاة: 18 طفلاً</span>
+            <button class="trigger-donate-modal text-xs font-bold text-secondary hover:underline flex items-center gap-1" data-preset-amount="250" type="button">
+              <span>اكفل جلسة هنا</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hospital 6 -->
+        <div class="hospital-card bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow" data-city="المدينة المنورة">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-bold">مركز إقليمي</span>
+              <span class="text-xs text-on-surface-variant flex items-center gap-1 font-semibold">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                المدينة المنورة
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-[28px]">health_and_safety</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">مستشفى الملك فهد</h3>
+                <p class="text-xs text-secondary font-semibold">وحدة غسيل الكلى للأطفال</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              يقدم خدمات مستمرة للأطفال، مع برامج ترفيه وتوزيع هدايا شهرية مقدمة من مبادرتنا.
+            </p>
+            <div class="bg-surface-container-low p-3 rounded-2xl flex items-center justify-between text-xs">
+              <span class="text-on-surface-variant">الجلسات الشهرية:</span>
+              <span class="font-bold text-primary">170 جلسة / شهر</span>
+            </div>
+          </div>
+          <div class="pt-4 mt-4 border-t border-outline-variant/20 flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant">الحالات المغطاة: 14 طفلاً</span>
+            <button class="trigger-donate-modal text-xs font-bold text-secondary hover:underline flex items-center gap-1" data-preset-amount="250" type="button">
+              <span>اكفل جلسة هنا</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Strategic Corporate & Medical Partners -->
+      <div class="bg-surface-container-low p-8 md:p-12 rounded-3xl border border-outline-variant/30 flex flex-col gap-8">
+        <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
+          <span class="text-xs font-bold text-secondary uppercase tracking-wider">شركاء النجاح الإنساني</span>
+          <h2 class="text-2xl font-bold text-on-surface">جهات ومؤسسات تدعم نبض الأمل</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center">
+          <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/20 flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-[36px] text-primary">bloodtype</span>
+            <span class="text-xs font-bold text-on-surface">الشركة الوطنية للمستلزمات الطبية</span>
+          </div>
+          <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/20 flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-[36px] text-secondary">verified_user</span>
+            <span class="text-xs font-bold text-on-surface">الجمعية السعودية لأمراض الكلى</span>
+          </div>
+          <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/20 flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-[36px] text-primary">diversity_3</span>
+            <span class="text-xs font-bold text-on-surface">صندوق المسؤولية الاجتماعية</span>
+          </div>
+          <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/20 flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-[36px] text-tertiary">favorite</span>
+            <span class="text-xs font-bold text-on-surface">مؤسسة أمل الطفولة الخيرية</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Partnership Application Form -->
+      <div class="bg-surface-container-lowest p-8 md:p-12 rounded-3xl border border-outline-variant/30 shadow-md">
+        <div class="max-w-3xl mx-auto flex flex-col gap-6">
+          <div class="text-center flex flex-col gap-2">
+            <h2 class="text-2xl font-bold text-on-surface">انضم كشريك طبي أو راعٍ مؤسسي</h2>
+            <p class="text-xs text-on-surface-variant">نسعد بالتعاون مع المشافي والمراكز والمؤسسات المانحة لخدمة أكبر عدد من أطفالنا المحاربين.</p>
+          </div>
+          <form onsubmit="event.preventDefault(); showToast('شكراً لتواصلك! تلقينا طلب الشراكة وسنتواصل معك خلال 24 ساعة'); this.reset();" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-bold text-on-surface">اسم الجهة أو المستشفى:</label>
+              <input class="px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 focus:outline-none focus:border-primary text-sm" placeholder="مثال: مستشفى الحياة التخصصي" required type="text"/>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-bold text-on-surface">نوع الشراكة:</label>
+              <select class="px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 focus:outline-none focus:border-primary text-sm">
+                <option>مركز غسيل أو مستشفى علاجي</option>
+                <option>توريد فلاتر وأجهزة طبية</option>
+                <option>رعاية مؤسسية / مسؤولية اجتماعية</option>
+                <option>دعم برامج أمنية بطل والتعليم</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-bold text-on-surface">البريد الإلكتروني للجهة:</label>
+              <input class="px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 focus:outline-none focus:border-primary text-sm" placeholder="partner@hospital.org" required type="email"/>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-bold text-on-surface">رقم التواصل المباشر:</label>
+              <input class="px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 focus:outline-none focus:border-primary text-sm" placeholder="05XXXXXXXX" required type="tel"/>
+            </div>
+            <div class="flex flex-col gap-1.5 md:col-span-2">
+              <label class="text-xs font-bold text-on-surface">تفاصيل التعاون المقترح:</label>
+              <textarea class="px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 focus:outline-none focus:border-primary text-sm h-28 resize-none" placeholder="اكتب نبذة عن مساهمتكم الكريمة أو عدد الأسرة المتوفرة..."></textarea>
+            </div>
+            <div class="md:col-span-2 text-center pt-2">
+              <button class="px-8 py-3.5 rounded-full bg-primary hover:bg-primary-container text-white text-sm font-bold shadow-md transition-all active:scale-95" type="submit">
+                إرسال طلب الشراكة
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 w-full bg-surface-container-low border-t border-outline-variant/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12">
+        <div class="lg:col-span-4 flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-[22px]">favorite</span>
+            </div>
+            <span class="text-xl font-bold text-primary">نبض الأمل</span>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            منصة إنسانية رقمية متخصصة في كفالة جلسات الغسيل الكلوي ورعاية الأطفال المحاربين في المشافي المعتمدة، نزرع الأمل ونصنع الابتسامة يداً بيد وبأعلى معايير الشفافية المالية المعتمدة.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <span class="text-xs text-primary font-bold bg-primary-fixed/40 px-3 py-1.5 rounded-full">ترخيص أهلي معتمد رقم #9482</span>
+          </div>
+        </div>
+        <div class="lg:col-span-3 flex flex-col gap-3">
+          <span class="text-[17px] text-on-surface font-bold mb-1">برامج الدعم والرعاية</span>
+          <ul class="flex flex-col gap-2.5 text-sm text-on-surface-variant">
+            <li><a href="calculator.html" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">water_drop</span>كفالة جلسات الغسيل المنتظمة</a></li>
+            <li><a href="calculator.html" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">medication</span>تأمين الفلاتر وحقائب العلاج</a></li>
+            <li><a href="stories.html" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">sentiment_satisfied</span>مبادرة تحقيق أمنية بطل</a></li>
+            <li><a href="about.html" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>جلسات الدعم النفسي والتمكين</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-2 flex flex-col gap-3">
+          <span class="text-[17px] text-on-surface font-bold mb-1">صفحات المنصة</span>
+          <ul class="flex flex-col gap-2 text-sm text-on-surface-variant">
+            <li><a href="index.html" class="hover:text-primary transition-colors">الرئيسية</a></li>
+            <li><a href="stories.html" class="hover:text-primary transition-colors">قصص الأبطال</a></li>
+            <li><a href="calculator.html" class="hover:text-primary transition-colors">حاسبة التبرع</a></li>
+            <li><a href="partners.html" class="hover:text-primary transition-colors">المستشفيات الشريكة</a></li>
+            <li><a href="about.html" class="hover:text-primary transition-colors">عن المبادرة</a></li>
+            <li><a href="donate.html" class="hover:text-primary transition-colors font-bold text-secondary">بوابة التبرع</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-3 flex flex-col gap-4">
+          <span class="text-[17px] text-on-surface font-bold">نشرة أبطال نبض الأمل</span>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            اشترك لتصلك قصص التعافي الحية وتفاصيل أثر مساهمتك الطيبة شهرياً.
+          </p>
+          <form onsubmit="event.preventDefault(); showToast('تم اشتراكك في النشرة البريدية بنجاح!'); this.reset();" class="flex flex-col gap-2">
+            <div class="flex items-center bg-surface-container-lowest rounded-full p-1.5 shadow-[0_1px_4px_rgba(0,0,0,0.05)] border border-outline-variant/30">
+              <input class="w-full bg-transparent px-4 text-xs text-on-surface placeholder:text-outline focus:outline-none" placeholder="بريدك الإلكتروني..." type="email" required/>
+              <button class="bg-primary text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-primary-container transition-colors shrink-0" type="submit">اشتراك</button>
+            </div>
+            <span class="text-[11px] text-outline px-2">نحترم خصوصيتك بالكامل.</span>
+          </form>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 bg-surface-container/60 px-6 py-4 rounded-2xl border border-outline-variant/20">
+        <span class="text-xs text-on-surface-variant">جميع الحقوق محفوظة © 2026 مبادرة نبض الأمل لأطفال الغسيل الكلوي.</span>
+        <div class="flex items-center gap-3">
+          <button onclick="copyToClipboard(window.location.href, 'تم نسخ رابط الشراكات!')" class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" title="مشاركة الرابط">
+            <span class="material-symbols-outlined text-[18px]">share</span>
+          </button>
+          <a href="mailto:info@nabd-alamal.org" class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" title="تواصل عبر البريد">
+            <span class="material-symbols-outlined text-[18px]">mail</span>
+          </a>
+          <a href="tel:920000000" class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" title="اتصل بنا">
+            <span class="material-symbols-outlined text-[18px]">call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // City Filter Logic
+    const cityButtons = document.querySelectorAll('#cityFilters .city-btn');
+    const hospitalCards = document.querySelectorAll('#hospitalsGrid .hospital-card');
+
+    cityButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        cityButtons.forEach(b => {
+          b.classList.remove('active', 'bg-primary', 'text-white');
+          b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        });
+        btn.classList.add('active', 'bg-primary', 'text-white');
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+
+        const city = btn.getAttribute('data-city');
+        hospitalCards.forEach(card => {
+          if (city === 'all' || card.getAttribute('data-city') === city) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
